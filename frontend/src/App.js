@@ -1,7 +1,15 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import { getMessage } from './api';
 
 function App() {
+
+  const [msg, setMsg] = useState("")
+
+  useEffect(() =>{
+    getMessage().then(setMsg).catch(console.error);
+  }, [])
+
   return (
     <div>
       <h1>Guestbook</h1>
