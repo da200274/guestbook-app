@@ -10,7 +10,9 @@ app.get('/', (req,res) => {
     //res.send("Hello world!")
     db.query('select 1 + 1 as solution', (err, results)=>{
         if(err) return res.status(500).json({error: err.message});
-        res.json({result: results});
+
+        const data = results as Array<{solution: number}>
+        res.json({result: data[0].solution});
     })
 })
 
