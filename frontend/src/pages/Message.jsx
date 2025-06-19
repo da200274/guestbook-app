@@ -9,7 +9,11 @@ function Message(){
     //e is the event object
     const submitMessage = async (e) =>{
         setStatus('sending');
-
+        if(!name || !content){
+            setStatus('Name and content is required!');
+            return;
+        }
+        
         try{
             const response = await sendMessage(name, content);
             if(response.success != true) throw new Error('Failed to post message');
