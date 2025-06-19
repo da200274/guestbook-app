@@ -7,6 +7,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+//route for getting the latest x messages from the database
 app.get('/getMessage', (req,res) => {
     const latestNumber = 10
     const sql = 'select * from Message order by created_at desc limit ?'
@@ -18,6 +19,7 @@ app.get('/getMessage', (req,res) => {
     })
 })
 
+//route for posting the message in the db
 app.post('/sendMessage', (req, res) => {
     const {name, content} = req.body;
 
