@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import { getMessage } from "../api";
+import {format} from 'date-fns'
 
 function Home(){
     
@@ -11,6 +12,7 @@ function Home(){
         getMessage().then(setMessages).catch(console.error);
     }, [])
 
+
     return (
         <div>
             <h1>Guestbook</h1>
@@ -18,7 +20,7 @@ function Home(){
             {messages.map((msg) => (
                 <div key={msg.id}>
                     <h4>{msg.name}</h4>
-                    <h5>{msg.created_at}</h5>
+                    <h5>{format (new Date(msg.created_at), 'dd.MM.yyyy HH:mm')}</h5>
                     <p>{msg.content}</p>
 
                 </div>
