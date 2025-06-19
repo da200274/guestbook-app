@@ -12,6 +12,7 @@ function Message(){
 
         try{
             const response = await sendMessage(name, content);
+            if(response.success != true) throw new Error('Failed to post message');
             setStatus('success');
             console.log(response);
         }catch(err){

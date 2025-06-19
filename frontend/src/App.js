@@ -5,16 +5,6 @@ import Message from './pages/Message';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
-  
-  /*
-  const [msg, setMsg] = useState("")
-
-  //used for testing the database connection
-  useEffect(() =>{
-    getMessage().then(setMsg).catch(console.error);
-  }, [])
-
-  return ( );*/
 
   return (
     <Router>
