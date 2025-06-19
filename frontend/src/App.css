@@ -37,10 +37,8 @@
   }
 }
 
-p{
+p, h1, button{
   margin: 25px 25px 25px 25px
 }
 
-h1{
-  margin: 25px 25px 25px 25px
-}
+

@@ -1,21 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import { getMessage } from './api';
+import Home from './pages/Home'
+import Message from './pages/Message';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
-
+  
+  /*
   const [msg, setMsg] = useState("")
 
+  //used for testing the database connection
   useEffect(() =>{
     getMessage().then(setMsg).catch(console.error);
   }, [])
 
+  return ( );*/
+
   return (
-    <div>
-      <h1>Guestbook</h1>
-      <p>See what people wrote about us and feel free to leave a message. </p>
-      <p>{msg}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/message' element={<Message />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
